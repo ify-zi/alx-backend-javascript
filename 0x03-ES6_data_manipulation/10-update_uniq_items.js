@@ -1,10 +1,14 @@
-const updateUniqueItems = (myMap) => {
-  const newVal = myMap.forEach((value, key) => {
-    if (value === 1) {
-      myMap.set(key, 100);
-    }
-  });
-  return newVal;
-};
+export default function updateUniqueItems(map) {
+  const list = map;
 
-export default updateUniqueItems;
+  if (list instanceof Map) {
+    for (const [key, value] of list) {
+      if (value === 1) {
+        list.set(key, 100);
+      }
+    }
+  } else {
+    throw new Error('Cannot process');
+  }
+  return list;
+}
