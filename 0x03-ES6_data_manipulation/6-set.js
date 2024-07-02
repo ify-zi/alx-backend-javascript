@@ -1,6 +1,10 @@
 export default function setFromArray(arr) {
-	if (Array.isArray(arr)) {
-		return new Set(arr);
-	};
-	return ;
+  try {
+    if (Array.isArray(arr)) {
+      return new Set(arr);
+    }
+  } catch (e) {
+    throw Error('Array must be an Array type');
+  }
+  return {};
 }
